@@ -18,11 +18,10 @@ public class ControleGastosEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-//    @ManyToOne
-//    @JoinColumn(name = "usuario_id", referencedColumnName = "id")
-//    private UsuariosEntity usuario;
+    @ManyToOne
+    @JoinColumn(name = "usuario_id", referencedColumnName = "id")
+    private UsuariosEntity usuario;
 
-    private Long usuario_id;
 
     private BigDecimal valor;
     private String descricao;
@@ -36,21 +35,12 @@ public class ControleGastosEntity {
         this.id = id;
     }
 
-//    public UsuariosEntity getUsuario() {
-//        return usuario;
-//    }
-//
-//    public void setUsuario(UsuariosEntity usuario) {
-//        this.usuario = usuario;
-//    }
-
-
-    public Long getUsuario_id() {
-        return usuario_id;
+    public UsuariosEntity getUsuario() {
+        return usuario;
     }
 
-    public void setUsuario_id(Long usuario_id) {
-        this.usuario_id = usuario_id;
+    public void setUsuario(UsuariosEntity usuario) {
+        this.usuario = usuario;
     }
 
     public BigDecimal getValor() {
