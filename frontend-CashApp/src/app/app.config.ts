@@ -12,7 +12,9 @@ export const appConfig: ApplicationConfig = {
     useClass: AuthInterceptor, 
     multi: true},
     provideHttpClient(withInterceptorsFromDi()) ]
-};
+
+  };
+
 
 export const API_CONFIG = {
   baseUrl: 'http://localhost:8090'

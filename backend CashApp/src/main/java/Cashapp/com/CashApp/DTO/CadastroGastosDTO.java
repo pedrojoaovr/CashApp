@@ -1,19 +1,20 @@
 package Cashapp.com.CashApp.DTO;
 
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 
 import java.math.BigDecimal;
 import java.util.Date;
 
 public record CadastroGastosDTO(
 
-    @NotBlank
+    @NotNull
     BigDecimal valor,
 
-    @NotBlank
+    @NotNull
     String descricao,
 
-    @NotBlank
+    @NotNull
     Date data
 )
 {

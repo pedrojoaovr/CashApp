@@ -4,7 +4,6 @@ import { FormsModule } from '@angular/forms';
 import { LoginService } from '../autenticacao/login.service.service';
 import { LoginModel } from '../autenticacao/login.model';
 
-
 @Component({
   selector: 'app-login',
   standalone: true,
@@ -35,3 +34,4 @@ export class LoginComponent {
   }
 
 }
+
