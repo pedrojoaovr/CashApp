@@ -5,7 +5,7 @@ import { GastosComponent } from './lista-gastos/lista-gastos.component';
 
 
 export const routes: Routes = [
-    { path: '', component: LoginComponent },
+    { path: '', component: GastosComponent },
     { path: 'gastos', component: GastosComponent },  
   ];
   

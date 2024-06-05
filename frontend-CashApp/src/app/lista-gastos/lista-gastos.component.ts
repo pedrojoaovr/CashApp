@@ -1,32 +1,28 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, computed, inject, input, signal } from '@angular/core';
 import { ListaGastosModel } from './lista-gastos.model';
 import { ListaGastosService } from './lista-gastos.service';
 import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-lista-gastos',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, FormsModule],
   templateUrl: './lista-gastos.component.html',
-  styleUrl: './lista-gastos.component.scss'
+  styleUrls: ['./lista-gastos.component.scss']
 })
-export class GastosComponent implements OnInit {
-  listaDeGastos: ListaGastosModel[] = [];
+export class GastosComponent {
+  listGastoService = inject(ListaGastosService);
 
-  constructor(private listaGastosService: ListaGastosService) { }
+  lista = this.listGastoService.gastos;
+  listFilter = signal('');
 
-  ngOnInit(): void {
-    this.obterListaDeGastos();
-  }
+  filterCriteria = input({
+    transform: (value: string) => value.toLocaleLowerCase(),
+    alias: 'listCriteria'
+  });
 
-  obterListaDeGastos() {
-    this.listaGastosService.listaGastos().subscribe({
-      next: (data: any) => {
-        this.listaDeGastos = data.content;
-      },
-      error: (error: any) => {
-        console.log('Erro ao obter lista de gastos:', error);
-      }
-    });
-  }
+  filteredGastos = computed(() =>
+    this.lista().filter(s => s.descricao.toLowerCase().includes(this.listFilter().toLowerCase()))
+  );
 }

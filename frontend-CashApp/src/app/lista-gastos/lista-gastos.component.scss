@@ -1,37 +1,39 @@
-body {
-    margin-top: 20px;
-    background: #FFF5EE;
+.table-card {
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
 }
 
-.card {
-    box-shadow: 0 20px 27px 0 rgb(0 0 0 / 5%);
+.table-card .card-header {
+    background-color: #f8f9fa;
+    border-bottom: 1px solid #e9ecef;
+    padding: 1rem 1.5rem;
 }
 
-.avatar.sm {
-    width: 2.25rem;
-    height: 2.25rem;
-    font-size: .818125rem;
+.table-card .table-responsive {
+    padding: 1rem 1.5rem;
 }
 
-.table-nowrap .table td,
-.table-nowrap .table th {
-    white-space: nowrap;
+.table-card .filter-row {
+    margin-bottom: 1rem;
 }
 
-.table>:not(caption)>*>* {
-    padding: 0.75rem 1.25rem;
-    border-bottom-width: 1px;
+.table-card .filter-label {
+    font-weight: bold;
 }
 
-table th {
-    font-weight: 600;
-    background-color: #eeecfd !important;
+.table-card .form-control {
+    border-radius: 5px;
+    box-shadow: none;
+    border: 1px solid #ced4da;
 }
 
-.fa-arrow-up {
-    color: #00CED1;
+.table-card .table thead {
+    background-color: #e9ecef;
+    text-transform: uppercase;
+    font-size: 0.875rem;
 }
 
-.fa-arrow-down {
-    color: #FF00FF;
+.table-card .table tbody tr:hover {
+    background-color: #f1f1f1;
 }
